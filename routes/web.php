@@ -8,6 +8,7 @@ use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BatchCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,9 @@ Route::resource('/enrollments' , EnrollmentController::class);
 Route::resource('/payments' , PaymentController::class);
 
 
-Route::get('report/report1/{pid}' , ReportController::class , 'report1');
+
+Route::get('report/report1/{pid}', [ReportController::class, 'report1']);
+
+
+
+Route::get('/batch-course/{id}', [BatchCourseController::class, 'show']);
